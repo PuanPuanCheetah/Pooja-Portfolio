@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Syren Cloud Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700&family=Montserrat:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Portfolio case-study shell, with Syren's own orange, black and Fog Grey used inside the showcase */
+:root{--bg:#FFFFFF;--surface:#FFFFFF;--ink:#17123D;--muted:#5B5680;--line:#E6E3F2;--accent:#7B3FE4;
+--syren:#F64F18;--syren-ink:#000000;--fog:#F3F3F3;--peach:#FFD6CB;
+--display:"Funnel Display",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);font-size:1.0625rem;line-height:1.6;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit} :focus-visible{outline:3px solid var(--syren);outline-offset:3px;border-radius:6px}
+h1,h2,h3{margin:0;font-weight:500;text-wrap:balance;line-height:1.05}
+/* nav (same as other case studies) */
+.pj-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px}
+.pj-home{text-decoration:none;display:inline-flex}
+.pj-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:var(--ink);color:var(--bg);border:2px solid var(--ink);font-size:1rem;letter-spacing:-.03em;transition:transform .25s ease,background-color .2s ease,box-shadow .2s ease}
+.pj-home:hover .pj-mark,.pj-home:focus-visible .pj-mark{background:var(--accent);color:#fff;transform:translate(-2px,-2px) rotate(-6deg);box-shadow:3px 3px 0 var(--ink)}
+.pj-cta{display:inline-flex;align-items:center;padding:9px 18px;border-radius:999px;background:var(--ink);color:var(--bg);border:2px solid var(--ink);text-decoration:none;font-size:.98rem;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.pj-cta:hover,.pj-cta:focus-visible{background:var(--accent);color:#fff;transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.back-link{text-decoration:none;font-size:.95rem;width:fit-content} .back-link:hover{color:var(--accent)}
+/* hero */
+.hero{padding-block:32px 40px;display:grid;gap:22px}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);letter-spacing:-.035em}
+.hero h1 b{font-weight:500;color:var(--syren)}
+.lead{margin:0;max-width:58ch;color:var(--muted);font-size:clamp(1.05rem,1.8vw,1.25rem)}
+.jump{display:flex;flex-wrap:wrap;gap:10px}
+.jump a{text-decoration:none;padding:8px 16px;border-radius:999px;border:1.5px solid var(--ink);background:var(--surface);font-size:.95rem;transition:transform .2s ease,box-shadow .2s ease}
+.jump a:hover,.jump a:focus-visible{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.stats{display:flex;flex-wrap:wrap;gap:12px 32px;padding-block:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{display:grid} .stats strong{font-size:2rem;font-weight:500;line-height:1;color:var(--syren);font-variant-numeric:tabular-nums} .stats small{color:var(--muted);font-size:.9rem}
+.hero-shot{border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#fff}
+.hero-shot img{display:block;width:100%;height:auto}
+/* sections */
+section{padding-block:56px;scroll-margin-top:16px}
+.sec-head{display:grid;gap:8px;margin-bottom:24px}
+.sec-head .num{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;color:var(--syren)}
+.sec-head h2{font-size:clamp(2rem,4.5vw,3rem);letter-spacing:-.025em}
+.sec-head p{margin:0;color:var(--muted);max-width:60ch}
+.slides{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.slides figure{margin:0;border-radius:18px;overflow:hidden;border:1px solid var(--line);background:#fff;cursor:zoom-in}
+.slides figure.span2{grid-column:1/-1}
+.slides img{display:block;width:100%;height:auto}
+.swatches{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.sw{display:flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:.9rem}
+.sw i{width:28px;height:28px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+.sw code{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+/* components */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tab{font:inherit;font-size:.98rem;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border-radius:999px;border:1.5px solid var(--ink);background:#fff;color:var(--ink);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.tab span{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+.tab:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.tab.on{background:var(--syren-ink);color:#fff;border-color:var(--syren-ink)} .tab.on span{color:var(--peach)}
+.c-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+.c-card{margin:0;display:grid;gap:10px;min-width:0}
+.c-card.wide{grid-column:span 2}
+.c-canvas{background:var(--fog);border-radius:18px;padding:22px;display:grid;place-items:center;min-height:180px;cursor:zoom-in;transition:box-shadow .2s ease}
+.c-canvas:hover{box-shadow:inset 0 0 0 1.5px var(--syren)}
+.c-card.dark .c-canvas{background:#000}
+.c-canvas img{display:block;max-width:100%;height:auto;max-height:420px;object-fit:contain}
+.c-row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;align-content:center}
+.c-row img.sm{max-height:44px;width:auto}
+.c-card figcaption{font-size:.95rem}
+.panel[hidden]{display:none!important}
+/* icons */
+.i-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.i-card{margin:0;display:grid;gap:8px;min-width:0}
+.i-card img{display:block;width:100%;height:220px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:16px;padding:10px;cursor:zoom-in}
+.i-card figcaption{font-size:.92rem;color:var(--muted)}
+.i-grid:not(.all) .extra{display:none}
+.more{margin-top:18px;font:inherit;padding:11px 20px;border-radius:999px;border:2px solid var(--ink);background:#fff;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.more:hover,.more:focus-visible{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,8,30,.82);display:grid;place-items:center;padding:max(20px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(20px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));cursor:zoom-out}
+.lb img{max-width:100%;max-height:88vh;border-radius:12px;background:#fff}
+.lb button{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));width:42px;height:42px;border-radius:50%;border:0;background:#fff;font-size:1.2rem;cursor:pointer}
+.links{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;text-decoration:none;border:2px solid var(--ink);transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+footer{padding-block:24px 48px;color:var(--muted);font-size:.9rem;border-top:1px dashed var(--line)}
+@media (max-width:860px){.c-grid,.i-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.c-grid,.i-grid,.slides{grid-template-columns:minmax(0,1fr)}.c-card.wide,.slides figure.span2{grid-column:auto}.c-canvas{padding:14px;min-height:120px}.i-card img{height:170px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="wrap">
+  <nav class="pj-nav" aria-label="Main">
+    <a class="pj-home" href="index.html" aria-label="Pooja Joshi, home"><span class="pj-mark" aria-hidden="true">PJ</span></a>
+    <a class="pj-cta" href="index.html#contact">Get in touch</a>
+  </nav>
+  <header class="hero">
+    <a class="back-link" href="index.html#work">← All work</a>
+    <h1>Syren Cloud <b>design system</b></h1>
+    <p class="lead">The colours, type, icons and components behind Syren Cloud's products, kept in one place so every screen looks and behaves the same.</p>
+    <div class="stats"><div><strong>10</strong><small>Brand colours</small></div><div><strong>5</strong><small>Type levels</small></div><div><strong>24</strong><small>Components</small></div><div><strong>31</strong><small>Icon sets</small></div></div>
+    <div class="jump"><a href="#colour">Colour</a><a href="#type">Typography</a><a href="#components">Components</a><a href="#icons">Icons</a></div>
+  </header>
+
+  <section id="colour">
+    <div class="sec-head"><span class="num">01</span><h2>Colour</h2><p>Radiant Orange and black lead. Greys and Light Orange support them, and a small set of additional colours is kept for charts and status.</p></div>
+    <div class="swatches"><span class="sw"><i style="background:#F64F18"></i>Radiant Orange <code>#F64F18</code></span><span class="sw"><i style="background:#000000"></i>Black <code>#000000</code></span><span class="sw"><i style="background:#F3F3F3"></i>Fog Grey <code>#F3F3F3</code></span><span class="sw"><i style="background:#FFFFFF"></i>White <code>#FFFFFF</code></span><span class="sw"><i style="background:#FFD6CB"></i>Light Orange <code>#FFD6CB</code></span></div>
+    <div class="slides">
+      <figure class="span2"><img class="" src="syren/c-palette.webp" width="1600" height="935" alt="Full colour palette: primary, secondary and additional colours" loading="lazy" data-zoom></figure>
+      <figure><img class="" src="syren/c-primary.webp" width="1600" height="935" alt="Primary colours: Orange and Black with the Syren logo" loading="lazy" data-zoom></figure>
+      <figure><img class="" src="syren/c-spectrum.webp" width="1600" height="935" alt="Primary colour spectrum: tints and shades of orange and grey" loading="lazy" data-zoom></figure>
+      <figure><img class="" src="syren/c-gradients.webp" width="1600" height="935" alt="Gradients" loading="lazy" data-zoom></figure>
+      <figure><img class="" src="syren/c-usage.webp" width="1600" height="935" alt="Colour usage proportions" loading="lazy" data-zoom></figure>
+    </div>
+  </section>
+
+  <section id="type">
+    <div class="sec-head"><span class="num">02</span><h2>Typography</h2><p>Montserrat throughout, from a 200pt display headline down to 24pt body text.</p></div>
+    <div class="slides">
+      <figure><img class="" src="syren/t-typeface.webp" width="1600" height="935" alt="Primary typeface: Montserrat" loading="lazy" data-zoom></figure>
+      <figure><img class="" src="syren/t-hierarchy.webp" width="1600" height="935" alt="Type hierarchy: display, H1, H2, subheader and body" loading="lazy" data-zoom></figure>
+    </div>
+  </section>
+
+  <section id="components">
+    <div class="sec-head"><span class="num">03</span><h2>Components</h2><p>Grouped by what they do. Tap any one to see it larger.</p></div>
+    <div class="tabs" role="tablist" aria-label="Component groups"><button type="button" role="tab" class="tab on" data-tab="actions" aria-selected="true">Actions<span>5</span></button><button type="button" role="tab" class="tab" data-tab="inputs" aria-selected="false">Inputs<span>7</span></button><button type="button" role="tab" class="tab" data-tab="navigation" aria-selected="false">Navigation<span>8</span></button><button type="button" role="tab" class="tab" data-tab="content" aria-selected="false">Content and feedback<span>4</span></button></div>
+    <div class="panel" data-panel="actions" role="tabpanel"><div class="c-grid"><figure class="c-card wide"><div class="c-canvas"><img class="" src="syren/b-states.webp" width="569" height="576" alt="Primary, secondary and icon buttons" loading="lazy" data-zoom></div><figcaption>Primary, secondary and icon buttons</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/b-more.webp" width="569" height="655" alt="More buttons for the application" loading="lazy" data-zoom></div><figcaption>More buttons for the application</figcaption></figure><figure class="c-card"><div class="c-canvas c-row"><img class="sm" src="syren/b6.webp" width="167" height="44" alt="Button variant" loading="lazy" data-zoom><img class="sm" src="syren/b1.webp" width="167" height="44" alt="Button variant" loading="lazy" data-zoom><img class="sm" src="syren/b2.webp" width="120" height="37" alt="Button variant" loading="lazy" data-zoom><img class="sm" src="syren/b3.webp" width="138" height="39" alt="Button variant" loading="lazy" data-zoom><img class="sm" src="syren/b4.webp" width="124" height="37" alt="Button variant" loading="lazy" data-zoom><img class="sm" src="syren/b5.webp" width="117" height="37" alt="Button variant" loading="lazy" data-zoom></div><figcaption>Button variants</figcaption></figure><figure class="c-card wide"><div class="c-canvas"><img class="" src="syren/b-group.webp" width="734" height="110" alt="Button group" loading="lazy" data-zoom></div><figcaption>Button group</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/action-sheet.webp" width="380" height="426" alt="Action sheet" loading="lazy" data-zoom></div><figcaption>Action sheet</figcaption></figure></div></div><div class="panel" data-panel="inputs" role="tabpanel" hidden><div class="c-grid"><figure class="c-card wide"><div class="c-canvas"><img class="" src="syren/inputs.webp" width="986" height="488" alt="Input fields" loading="lazy" data-zoom></div><figcaption>Input fields</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/input.webp" width="710" height="258" alt="Text input states" loading="lazy" data-zoom></div><figcaption>Text input states</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/form.webp" width="320" height="504" alt="Form" loading="lazy" data-zoom></div><figcaption>Form</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/datepicker.webp" width="672" height="548" alt="Date picker" loading="lazy" data-zoom></div><figcaption>Date picker</figcaption></figure><figure class="c-card wide"><div class="c-canvas"><img class="" src="syren/dragdrop.webp" width="1207" height="807" alt="Drag and drop upload" loading="lazy" data-zoom></div><figcaption>Drag and drop upload</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/checkbox.webp" width="700" height="182" alt="Checkbox" loading="lazy" data-zoom></div><figcaption>Checkbox</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/slider.webp" width="480" height="247" alt="Slider" loading="lazy" data-zoom></div><figcaption>Slider</figcaption></figure></div></div><div class="panel" data-panel="navigation" role="tabpanel" hidden><div class="c-grid"><figure class="c-card"><div class="c-canvas"><img class="" src="syren/sidebar.webp" width="320" height="751" alt="Sidebar" loading="lazy" data-zoom></div><figcaption>Sidebar</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/menu.webp" width="320" height="880" alt="Menu" loading="lazy" data-zoom></div><figcaption>Menu</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/context.webp" width="250" height="498" alt="Context menu" loading="lazy" data-zoom></div><figcaption>Context menu</figcaption></figure><figure class="c-card wide"><div class="c-canvas"><img class="" src="syren/megamenu.webp" width="1260" height="261" alt="Mega menu" loading="lazy" data-zoom></div><figcaption>Mega menu</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/tabbar.webp" width="435" height="44" alt="Tab bar" loading="lazy" data-zoom></div><figcaption>Tab bar</figcaption></figure><figure class="c-card wide"><div class="c-canvas"><img class="" src="syren/tabs.webp" width="1286" height="869" alt="Tabs" loading="lazy" data-zoom></div><figcaption>Tabs</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/breadcrumbs.webp" width="805" height="396" alt="Breadcrumbs" loading="lazy" data-zoom></div><figcaption>Breadcrumbs</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/scroll.webp" width="1062" height="869" alt="Scroll bars" loading="lazy" data-zoom></div><figcaption>Scroll bars</figcaption></figure></div></div><div class="panel" data-panel="content" role="tabpanel" hidden><div class="c-grid"><figure class="c-card wide"><div class="c-canvas"><img class="" src="syren/cards.webp" width="1570" height="800" alt="Cards" loading="lazy" data-zoom></div><figcaption>Cards</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/cardlist.webp" width="384" height="902" alt="Card list" loading="lazy" data-zoom></div><figcaption>Card list</figcaption></figure><figure class="c-card dark"><div class="c-canvas"><img class="" src="syren/progress.webp" width="381" height="458" alt="Progress steps" loading="lazy" data-zoom></div><figcaption>Progress steps</figcaption></figure><figure class="c-card"><div class="c-canvas"><img class="" src="syren/tooltip.webp" width="90" height="69" alt="Tooltip" loading="lazy" data-zoom></div><figcaption>Tooltip</figcaption></figure></div></div>
+  </section>
+
+  <section id="icons">
+    <div class="sec-head"><span class="num">04</span><h2>Icons</h2><p>31 sets in linear and bold styles, from navigation and files to finance and devices.</p></div>
+    <div class="i-grid" id="i-grid"><figure class="i-card"><img src="syren/icons/arrow.webp" width="1200" height="356" alt="Arrow icons" loading="lazy" data-zoom><figcaption>Arrow</figcaption></figure><figure class="i-card"><img src="syren/icons/notifications.webp" width="1200" height="773" alt="Notifications icons" loading="lazy" data-zoom><figcaption>Notifications</figcaption></figure><figure class="i-card"><img src="syren/icons/settings.webp" width="1200" height="464" alt="Settings icons" loading="lazy" data-zoom><figcaption>Settings</figcaption></figure><figure class="i-card"><img src="syren/icons/users.webp" width="1200" height="363" alt="Users icons" loading="lazy" data-zoom><figcaption>Users</figcaption></figure><figure class="i-card"><img src="syren/icons/money.webp" width="1200" height="304" alt="Money icons" loading="lazy" data-zoom><figcaption>Money</figcaption></figure><figure class="i-card"><img src="syren/icons/files.webp" width="1200" height="796" alt="Files icons" loading="lazy" data-zoom><figcaption>Files</figcaption></figure><figure class="i-card extra"><img src="syren/icons/search.webp" width="1200" height="668" alt="Search icons" loading="lazy" data-zoom><figcaption>Search</figcaption></figure><figure class="i-card extra"><img src="syren/icons/security.webp" width="1200" height="299" alt="Security icons" loading="lazy" data-zoom><figcaption>Security</figcaption></figure><figure class="i-card extra"><img src="syren/icons/archive.webp" width="1200" height="618" alt="Archive icons" loading="lazy" data-zoom><figcaption>Archive</figcaption></figure><figure class="i-card extra"><img src="syren/icons/astrology.webp" width="1200" height="1007" alt="Astrology icons" loading="lazy" data-zoom><figcaption>Astrology</figcaption></figure><figure class="i-card extra"><img src="syren/icons/building.webp" width="1200" height="617" alt="Building icons" loading="lazy" data-zoom><figcaption>Building</figcaption></figure><figure class="i-card extra"><img src="syren/icons/business.webp" width="1200" height="363" alt="Business icons" loading="lazy" data-zoom><figcaption>Business</figcaption></figure><figure class="i-card extra"><img src="syren/icons/call.webp" width="1200" height="730" alt="Call icons" loading="lazy" data-zoom><figcaption>Call</figcaption></figure><figure class="i-card extra"><img src="syren/icons/car-linear.webp" width="1200" height="842" alt="Car icons" loading="lazy" data-zoom><figcaption>Car</figcaption></figure><figure class="i-card extra"><img src="syren/icons/computers-devices-electronics.webp" width="1200" height="482" alt="Computers, Devices, Electronics icons" loading="lazy" data-zoom><figcaption>Computers, Devices, Electronics</figcaption></figure><figure class="i-card extra"><img src="syren/icons/content.webp" width="1200" height="654" alt="Content icons" loading="lazy" data-zoom><figcaption>Content</figcaption></figure><figure class="i-card extra"><img src="syren/icons/crypto-currency.webp" width="1200" height="1028" alt="Crypto Currency icons" loading="lazy" data-zoom><figcaption>Crypto Currency</figcaption></figure><figure class="i-card extra"><img src="syren/icons/delivery.webp" width="1200" height="444" alt="Delivery icons" loading="lazy" data-zoom><figcaption>Delivery</figcaption></figure><figure class="i-card extra"><img src="syren/icons/design-tools.webp" width="1200" height="462" alt="Design, Tools icons" loading="lazy" data-zoom><figcaption>Design, Tools</figcaption></figure><figure class="i-card extra"><img src="syren/icons/emails-messages.webp" width="1200" height="624" alt="Emails, Messages icons" loading="lazy" data-zoom><figcaption>Emails, Messages</figcaption></figure><figure class="i-card extra"><img src="syren/icons/flags.webp" width="592" height="1612" alt="Flags icons" loading="lazy" data-zoom><figcaption>Flags</figcaption></figure><figure class="i-card extra"><img src="syren/icons/grid.webp" width="1200" height="528" alt="Grid icons" loading="lazy" data-zoom><figcaption>Grid</figcaption></figure><figure class="i-card extra"><img src="syren/icons/location.webp" width="1200" height="276" alt="Location icons" loading="lazy" data-zoom><figcaption>Location</figcaption></figure><figure class="i-card extra"><img src="syren/icons/programing.webp" width="1200" height="809" alt="Programing icons" loading="lazy" data-zoom><figcaption>Programing</figcaption></figure><figure class="i-card extra"><img src="syren/icons/school-learning.webp" width="1200" height="515" alt="School, Learning icons" loading="lazy" data-zoom><figcaption>School, Learning</figcaption></figure><figure class="i-card extra"><img src="syren/icons/shop.webp" width="1200" height="501" alt="Shop icons" loading="lazy" data-zoom><figcaption>Shop</figcaption></figure><figure class="i-card extra"><img src="syren/icons/support-like-question.webp" width="1200" height="285" alt="Support, Like, Question icons" loading="lazy" data-zoom><figcaption>Support, Like, Question</figcaption></figure><figure class="i-card extra"><img src="syren/icons/time.webp" width="1200" height="475" alt="Time icons" loading="lazy" data-zoom><figcaption>Time</figcaption></figure><figure class="i-card extra"><img src="syren/icons/type-paragraph-character.webp" width="1200" height="627" alt="Type, Paragraph, Character icons" loading="lazy" data-zoom><figcaption>Type, Paragraph, Character</figcaption></figure><figure class="i-card extra"><img src="syren/icons/video-audio-image.webp" width="1200" height="607" alt="Video, Audio, Image icons" loading="lazy" data-zoom><figcaption>Video, Audio, Image</figcaption></figure><figure class="i-card extra"><img src="syren/icons/weather.webp" width="1200" height="400" alt="Weather icons" loading="lazy" data-zoom><figcaption>Weather</figcaption></figure></div>
+    <button class="more" id="more" type="button" aria-expanded="false" aria-controls="i-grid">Show all 31 sets</button>
+  </section>
+
+  <div class="links"><a class="btn" href="index.html#work">← Back to all work</a></div>
+  <footer>© 2026 Pooja Joshi</footer>
+</div>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.tab')),panels=[].slice.call(document.querySelectorAll('.panel'));
+  tabs.forEach(function(t){t.addEventListener('click',function(){tabs.forEach(function(x){var on=x===t;x.classList.toggle('on',on);x.setAttribute('aria-selected',on?'true':'false');});panels.forEach(function(p){p.hidden=p.getAttribute('data-panel')!==t.getAttribute('data-tab');});});});
+  var grid=document.getElementById('i-grid'),more=document.getElementById('more');
+  more.addEventListener('click',function(){var all=grid.classList.toggle('all');more.textContent=all?'Show fewer':'Show all 31 sets';more.setAttribute('aria-expanded',all?'true':'false');});
+  document.addEventListener('click',function(e){var im=e.target.closest('[data-zoom]');if(!im)return;var lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-label',im.alt);
+    var big=document.createElement('img');big.src=im.src;big.alt=im.alt;var x=document.createElement('button');x.type='button';x.setAttribute('aria-label','Close');x.textContent='✕';
+    lb.appendChild(big);lb.appendChild(x);document.body.appendChild(lb);x.focus();function close(){lb.remove();document.removeEventListener('keydown',k);im.focus&&im.focus();}function k(ev){if(ev.key==='Escape')close();}lb.addEventListener('click',close);document.addEventListener('keydown',k);});
+})();
+</script>
+</body></html>

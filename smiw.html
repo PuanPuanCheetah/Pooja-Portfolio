@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>SMIW Branding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #F4F2FF; --surface: #FFFFFF; --ink: #17123D; --muted: #5B5680; --line: #D9D4F5; --accent: #7B3FE4; --redline: #2FCB7A;
+  --display: "Funnel Display", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --body: "Funnel Display", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+  color-scheme: light;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #100D27; --surface: #1B1740; --ink: #EFECFF; --muted: #A9A3D6; --line: #322C66; --accent: #A98BFF; --redline: #5FE0A0; color-scheme: dark; }
+}
+:root[data-theme="dark"] { --bg: #100D27; --surface: #1B1740; --ink: #EFECFF; --muted: #A9A3D6; --line: #322C66; --accent: #A98BFF; --redline: #5FE0A0; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
+  background-image: radial-gradient(var(--line) 1px, transparent 1px); background-size: 24px 24px; }
+.wrap { max-width: 1180px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--redline); outline-offset: 3px; border-radius: 4px; }
+nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; padding-block: 24px; }
+.logo { font-family: var(--display); font-weight: 800; font-size: 1.2rem; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+.logo span { width: 26px; height: 26px; border-radius: 50% 50% 50% 4px; background: var(--accent); display: inline-block; }
+.back { font-weight: 600; text-decoration: none; }
+.back:hover { color: var(--accent); }
+header { padding-block: 32px 40px; display: grid; gap: 20px; }
+.eyebrow { font-family: var(--mono); font-size: .76rem; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(2.4rem, 6.5vw, 4.8rem); font-weight: 800; letter-spacing: -.035em; line-height: 1.02; margin: 0; text-wrap: balance; }
+.lead { font-size: clamp(1.1rem, 2vw, 1.3rem); line-height: 1.5; max-width: 60ch; margin: 0; }
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border: 2px solid var(--ink); border-radius: 20px; background: var(--surface); overflow: hidden; margin: 0; }
+.facts div { padding: 14px 18px; border-right: 1px solid var(--line); min-width: 0; }
+.facts div:last-child { border-right: 0; }
+.facts dt { font-family: var(--mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); }
+.facts dd { margin: 2px 0 0; font-weight: 600; }
+.slides { border: 2px solid var(--ink); border-radius: 28px; overflow: hidden; background: #FFFFFF; margin-bottom: 40px; }
+.slides img, .slides video { display: block; width: 100%; height: auto; }
+.slides { display: grid; gap: 0; }
+.slides video { aspect-ratio: 16 / 9; background: #0F1416; }
+.links { display: flex; gap: 12px; flex-wrap: wrap; padding-bottom: 56px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; border: 2px solid var(--ink); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn:hover { transform: translateY(-2px); }
+footer { padding-block: 24px 48px; color: var(--muted); font-size: .9rem; border-top: 1px dashed var(--line); }
+@media (max-width: 700px) {
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts div:nth-child(2) { border-right: 0; }
+  .facts div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .slides { border-radius: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* One weight across the whole site */
+html body *, html body *::before, html body *::after { font-weight: 400 !important; }
+
+/* Subtle gradient sheen on primary buttons only */
+.lp-btn.white, .btn.primary { position: relative; isolation: isolate; transition: transform .15s ease, box-shadow .5s ease; }
+.lp-btn.white::before, .btn.primary::before {
+  content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px; pointer-events: none;
+  background: linear-gradient(110deg, #7B3FE4, #2FCB7A, #FFD84A, #2FCB7A, #7B3FE4);
+  background-size: 300% 100%; background-position: 0% 50%;
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity .45s ease;
+}
+.lp-btn.white:hover::before, .btn.primary:hover::before, .lp-btn.white:focus-visible::before, .btn.primary:focus-visible::before { opacity: 1; animation: sheen 4s linear infinite; }
+.lp-btn.white:hover, .btn.primary:hover { box-shadow: 0 10px 28px -12px rgba(47,203,122,.45), 0 6px 22px -14px rgba(123,63,228,.5); }
+.lp-btn.white:active, .btn.primary:active { transform: scale(.97); }
+.lp-btn.white:active::before, .btn.primary:active::before { animation-duration: 1s; }
+@keyframes sheen { from { background-position: 0% 50%; } to { background-position: 300% 50%; } }
+@media (prefers-reduced-motion: reduce) { .lp-btn.white:hover::before, .btn.primary:hover::before { animation: none; } }
+
+.facts.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 700px) {
+  .facts.three { grid-template-columns: minmax(0, 1fr); }
+  .facts.three div { border-right: 0; border-bottom: 1px solid var(--line); }
+  .facts.three div:last-child { border-bottom: 0; }
+}
+
+/* Navbar matching the IRCTC case study */
+.pj-nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 20px; }
+.pj-home { text-decoration: none; display: inline-flex; }
+.pj-mark { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 12px; background: var(--ink); color: var(--bg); border: 2px solid var(--ink); font-family: var(--display); font-size: 1rem; letter-spacing: -.03em; transition: transform .25s ease, background-color .2s ease, color .2s ease, box-shadow .2s ease; }
+.pj-home:hover .pj-mark, .pj-home:focus-visible .pj-mark { background: var(--accent); color: #FFFFFF; transform: translate(-2px, -2px) rotate(-6deg); box-shadow: 3px 3px 0 var(--ink); }
+.pj-cta { display: inline-flex; align-items: center; padding: 9px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); border: 2px solid var(--ink); text-decoration: none; font-size: .98rem; transition: transform .2s ease, box-shadow .2s ease, background-color .2s ease; }
+.pj-cta:hover, .pj-cta:focus-visible { background: var(--accent); color: #FFFFFF; transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+.back-link { font-weight: 600; text-decoration: none; font-size: .95rem; width: fit-content; }
+.back-link:hover { color: var(--accent); }
+@media (prefers-reduced-motion: reduce) { .pj-mark, .pj-cta { transition: none; } .pj-home:hover .pj-mark, .pj-cta:hover { transform: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="pj-nav" aria-label="Main">
+    <a class="pj-home" href="index.html" aria-label="Pooja Joshi, home"><span class="pj-mark" aria-hidden="true">PJ</span></a>
+    <a class="pj-cta" href="index.html#contact">Get in touch</a>
+  </nav>
+
+  <header>
+    <a class="back-link" href="index.html#branding">← All work</a>
+    <span class="eyebrow">Branding · Logo &amp; landing page</span>
+    <h1>SMIW</h1>
+    <p class="lead">Logo, brand identity and landing page for SMIW (Spoilt Indian Modern Woman), a brand making bags from plant-based leather.</p>
+  </header>
+
+  <div class="slides">
+    <img src="smiw/01.webp" width="1200" height="900" alt="SMIW introduction: plant-based leather bags, with a tan tote.">
+    <img src="smiw/02.gif" width="1000" height="750" alt="SMIW logo animation." loading="lazy">
+    <img src="smiw/03.webp" width="1200" height="900" alt="SMIW logo, Spoilt Indian Modern Woman, over a dark photo." loading="lazy">
+    <img src="smiw/04.webp" width="1200" height="900" alt="Colour palette and Montserrat typography." loading="lazy">
+    <img src="smiw/05.webp" width="1200" height="900" alt="Business cards on concrete." loading="lazy">
+    <img src="smiw/06.webp" width="1200" height="900" alt="SMIW logo on a dark T-shirt." loading="lazy">
+    <img src="smiw/07.webp" width="1200" height="900" alt="Bus-stop poster: Choose cruelty free leather luxury." loading="lazy">
+    <img src="smiw/08.webp" width="1200" height="900" alt="White shopping bag with the SMIW logo." loading="lazy">
+    <img src="smiw/09.webp" width="1200" height="900" alt="Black crossbody bag next to the SMIW logo." loading="lazy">
+    <img src="smiw/10.webp" width="1200" height="900" alt="SMIW logo on a green background." loading="lazy">
+    <img src="smiw/11.gif" width="1080" height="720" alt="Landing page: Sustainable Luxury." loading="lazy">
+    <img src="smiw/12.gif" width="1000" height="750" alt="Landing page on a laptop." loading="lazy">
+    <img src="smiw/13.webp" width="1200" height="900" alt="Thank you for watching." loading="lazy">
+  </div>
+
+  <div class="links">
+    <a class="btn primary" href="index.html#branding">← Back to all work</a>
+    <a class="btn" href="https://www.behance.net/gallery/205498803/Logo-Branding-UI-design-(Landing-page)-SMIW" target="_blank" rel="noopener">View on Behance ↗</a>
+  </div>
+
+  <footer>© 2026 Pooja Joshi</footer>
+</div>
+</body>
+</html>
