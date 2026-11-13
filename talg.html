@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
 :root {
-  --bg: #F4F2FF; --surface: #FFFFFF; --ink: #17123D; --muted: #5B5680; --line: #D9D4F5; --accent: #7B3FE4; --redline: #2FCB7A;
+  --bg: #F4F2FF; --surface: #FFFFFF; --ink: #17123D; --muted: #5B5680; --line: #D9D4F5; --accent: #1A46C8; --redline: #2FCB7A;
   --display: "Funnel Display", system-ui, -apple-system, "Segoe UI", sans-serif;
   --body: "Funnel Display", system-ui, -apple-system, "Segoe UI", sans-serif;
   --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
@@ -17,9 +17,9 @@
   padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --bg: #100D27; --surface: #1B1740; --ink: #EFECFF; --muted: #A9A3D6; --line: #322C66; --accent: #A98BFF; --redline: #5FE0A0; color-scheme: dark; }
+  :root:not([data-theme="light"]) { --bg: #100D27; --surface: #1B1740; --ink: #EFECFF; --muted: #A9A3D6; --line: #322C66; --accent: #7C9BFF; --redline: #5FE0A0; color-scheme: dark; }
 }
-:root[data-theme="dark"] { --bg: #100D27; --surface: #1B1740; --ink: #EFECFF; --muted: #A9A3D6; --line: #322C66; --accent: #A98BFF; --redline: #5FE0A0; color-scheme: dark; }
+:root[data-theme="dark"] { --bg: #100D27; --surface: #1B1740; --ink: #EFECFF; --muted: #A9A3D6; --line: #322C66; --accent: #7C9BFF; --redline: #5FE0A0; color-scheme: dark; }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
   background-image: radial-gradient(var(--line) 1px, transparent 1px); background-size: 24px 24px; }
@@ -64,14 +64,14 @@ html body *, html body *::before, html body *::after { font-weight: 400 !importa
 .lp-btn.white, .btn.primary { position: relative; isolation: isolate; transition: transform .15s ease, box-shadow .5s ease; }
 .lp-btn.white::before, .btn.primary::before {
   content: ""; position: absolute; inset: -2px; border-radius: inherit; padding: 2px; pointer-events: none;
-  background: linear-gradient(110deg, #7B3FE4, #2FCB7A, #FFD84A, #2FCB7A, #7B3FE4);
+  background: linear-gradient(110deg, #1A46C8, #2FCB7A, #FFD84A, #2FCB7A, #1A46C8);
   background-size: 300% 100%; background-position: 0% 50%;
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
   opacity: 0; transition: opacity .45s ease;
 }
 .lp-btn.white:hover::before, .btn.primary:hover::before, .lp-btn.white:focus-visible::before, .btn.primary:focus-visible::before { opacity: 1; animation: sheen 4s linear infinite; }
-.lp-btn.white:hover, .btn.primary:hover { box-shadow: 0 10px 28px -12px rgba(47,203,122,.45), 0 6px 22px -14px rgba(123,63,228,.5); }
+.lp-btn.white:hover, .btn.primary:hover { box-shadow: 0 10px 28px -12px rgba(47,203,122,.45), 0 6px 22px -14px rgba(26,70,200,.5); }
 .lp-btn.white:active, .btn.primary:active { transform: scale(.97); }
 .lp-btn.white:active::before, .btn.primary:active::before { animation-duration: 1s; }
 @keyframes sheen { from { background-position: 0% 50%; } to { background-position: 300% 50%; } }
@@ -100,7 +100,7 @@ html body *, html body *::before, html body *::after { font-weight: 400 !importa
 <div class="wrap">
   <nav class="pj-nav" aria-label="Main">
     <a class="pj-home" href="index.html" aria-label="Pooja Joshi, home"><span class="pj-mark" aria-hidden="true">PJ</span></a>
-    <a class="pj-cta" href="index.html#contact">Get in touch</a>
+    <a class="pj-cta" href="about.html#contact">Get in touch</a>
   </nav>
 
   <header>

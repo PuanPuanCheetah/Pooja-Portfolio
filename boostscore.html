@@ -37,7 +37,7 @@ html body *, html body *::before, html body *::after { font-weight: 400 !importa
   --ink: #17123D;
   --muted: #5B5680;
   --line: #D9D4F5;
-  --accent: #7B3FE4;
+  --accent: #1A46C8;
   --on-accent: #FFFFFF;
   --sticky: #FFD84A;
   --on-sticky: #2A2200;
@@ -50,12 +50,12 @@ html body *, html body *::before, html body *::after { font-weight: 400 !importa
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #100D27; --surface: #1B1740; --ink: #EFECFF; --muted: #A9A3D6; --line: #322C66;
-    --accent: #A98BFF; --on-accent: #0E0B24; --redline: #5FE0A0; --mint: #5FE0A0; color-scheme: dark;
+    --accent: #7C9BFF; --on-accent: #0E0B24; --redline: #5FE0A0; --mint: #5FE0A0; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #100D27; --surface: #1B1740; --ink: #EFECFF; --muted: #A9A3D6; --line: #322C66;
-  --accent: #A98BFF; --on-accent: #0E0B24; --redline: #5FE0A0; --mint: #5FE0A0; color-scheme: dark;
+  --accent: #7C9BFF; --on-accent: #0E0B24; --redline: #5FE0A0; --mint: #5FE0A0; color-scheme: dark;
 }
 * { box-sizing: border-box; }
 body {
@@ -157,7 +157,7 @@ section { padding-block: 64px; border-top: 1px dashed var(--line); }
 .p-head small { display: block; color: #6A6590; font-size: 11px; font-weight: 400; }
 .p-steps { display: flex; gap: 4px; padding: 8px 14px 0; }
 .p-steps i { flex: 1; height: 4px; border-radius: 4px; background: #E6E3F7; }
-.p-steps i.on { background: #7B3FE4; }
+.p-steps i.on { background: #1A46C8; }
 .p-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px; min-height: 430px; }
 .p-h { font-family: var(--display); font-size: 19px; font-weight: 700; line-height: 1.15; }
 .route { border: 1px solid #E6E3F7; border-radius: 14px; position: relative; }
@@ -166,11 +166,11 @@ section { padding-block: 64px; border-top: 1px dashed var(--line); }
 .lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .08em; color: #6A6590; }
 .val { font-weight: 600; font-size: 13.5px; }
 .val small { font-weight: 400; color: #6A6590; font-size: 11px; }
-.swap { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; border-radius: 50%; background: #7B3FE4; color: #fff; display: grid; place-items: center; font-size: 13px; }
+.swap { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; border-radius: 50%; background: #1A46C8; color: #fff; display: grid; place-items: center; font-size: 13px; }
 .dates { display: flex; gap: 6px; }
 .dates span { flex: 1; text-align: center; border: 1px solid #E6E3F7; border-radius: 10px; padding: 6px 0; font-size: 11px; color: #6A6590; }
 .dates span b { display: block; color: #17123D; font-size: 13px; }
-.dates span.on { background: #7B3FE4; border-color: #7B3FE4; color: #DAD6FF; }
+.dates span.on { background: #1A46C8; border-color: #1A46C8; color: #DAD6FF; }
 .dates span.on b { color: #fff; }
 .seg { display: flex; background: #F1EFFC; border-radius: 10px; padding: 3px; gap: 3px; }
 .seg span { flex: 1; text-align: center; padding: 5px 0; border-radius: 8px; font-size: 11.5px; color: #6A6590; }
@@ -184,7 +184,7 @@ section { padding-block: 64px; border-top: 1px dashed var(--line); }
 .filters span { border: 1px solid #E6E3F7; border-radius: 999px; padding: 4px 9px; font-size: 11px; white-space: nowrap; }
 .filters span.on { background: #17123D; color: #fff; border-color: #17123D; }
 .train { border: 1px solid #E6E3F7; border-radius: 14px; padding: 10px; display: grid; gap: 8px; }
-.train.sel { border: 2px solid #7B3FE4; }
+.train.sel { border: 2px solid #1A46C8; }
 .t-top { display: flex; justify-content: space-between; gap: 6px; }
 .t-top b { font-size: 13px; }
 .t-top small { color: #6A6590; font-size: 10.5px; display: block; }
@@ -194,7 +194,7 @@ section { padding-block: 64px; border-top: 1px dashed var(--line); }
 .t-time em { font-style: normal; color: #6A6590; font-size: 10.5px; }
 .cls { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 5px; }
 .cls div { border-radius: 9px; padding: 6px; background: #F7F6FD; display: grid; gap: 2px; }
-.cls div.pick { outline: 2px solid #7B3FE4; background: #fff; }
+.cls div.pick { outline: 2px solid #1A46C8; background: #fff; }
 .cls b { font-size: 11.5px; }
 .cls small { font-size: 10.5px; color: #6A6590; font-variant-numeric: tabular-nums; }
 .st { font-size: 10px; font-weight: 600; border-radius: 5px; padding: 1px 5px; width: fit-content; }
@@ -205,17 +205,17 @@ section { padding-block: 64px; border-top: 1px dashed var(--line); }
 .chance { font-size: 11px; background: #FFF8DF; border-radius: 9px; padding: 7px 9px; color: #5A4300; }
 
 .pax { border: 1px solid #E6E3F7; border-radius: 12px; padding: 9px 10px; display: flex; align-items: center; gap: 9px; }
-.pax.on { border: 2px solid #7B3FE4; }
-.av { width: 30px; height: 30px; border-radius: 50%; background: #EEEBFF; display: grid; place-items: center; font-weight: 700; font-size: 11px; color: #7B3FE4; flex: none; }
+.pax.on { border: 2px solid #1A46C8; }
+.av { width: 30px; height: 30px; border-radius: 50%; background: #EEEBFF; display: grid; place-items: center; font-weight: 700; font-size: 11px; color: #1A46C8; flex: none; }
 .pax > div:not(.av) { flex: 1; min-width: 0; }
 .pax b { display: block; font-size: 12.5px; }
 .pax small { color: #6A6590; font-size: 10.5px; }
 .tick { width: 18px; height: 18px; border-radius: 5px; border: 1.5px solid #CFCAEA; flex: none; display: grid; place-items: center; font-size: 11px; }
-.tick.on { background: #7B3FE4; border-color: #7B3FE4; color: #fff; }
+.tick.on { background: #1A46C8; border-color: #1A46C8; color: #fff; }
 .berth { display: flex; gap: 4px; flex-wrap: wrap; }
 .berth span { font-size: 10.5px; border: 1px solid #E6E3F7; border-radius: 6px; padding: 2px 6px; }
 .berth span.on { background: #17123D; color: #fff; border-color: #17123D; }
-.add { border: 1.5px dashed #CFCAEA; border-radius: 12px; padding: 9px; text-align: center; color: #7B3FE4; font-weight: 600; font-size: 12px; }
+.add { border: 1.5px dashed #CFCAEA; border-radius: 12px; padding: 9px; text-align: center; color: #1A46C8; font-weight: 600; font-size: 12px; }
 .contact { font-size: 11px; color: #6A6590; background: #F7F6FD; border-radius: 10px; padding: 8px 10px; }
 
 .summary { border: 1px solid #E6E3F7; border-radius: 14px; padding: 10px; display: grid; gap: 4px; }
@@ -223,9 +223,9 @@ section { padding-block: 64px; border-top: 1px dashed var(--line); }
 .fare div { display: flex; justify-content: space-between; font-size: 12px; font-variant-numeric: tabular-nums; }
 .fare div.total { border-top: 1px dashed #D9D5F0; padding-top: 7px; font-weight: 700; font-size: 14px; }
 .opt { display: flex; align-items: center; gap: 8px; border: 1px solid #E6E3F7; border-radius: 10px; padding: 8px 10px; font-size: 12px; }
-.opt.on { border: 2px solid #7B3FE4; }
+.opt.on { border: 2px solid #1A46C8; }
 .radio { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #CFCAEA; flex: none; }
-.opt.on .radio { border: 4px solid #7B3FE4; }
+.opt.on .radio { border: 4px solid #1A46C8; }
 .opt small { margin-left: auto; color: #6A6590; font-size: 10.5px; }
 
 .done-ic { width: 54px; height: 54px; border-radius: 50%; background: #2FCB7A; color: #fff; display: grid; place-items: center; font-size: 26px; font-weight: 800; margin: 8px auto 0; }
@@ -436,59 +436,62 @@ a.ann-dot { isolation: isolate; }
 a.ann-dot:nth-of-type(2)::after { animation-delay: .5s; } a.ann-dot:nth-of-type(3)::after { animation-delay: 1s; } a.ann-dot:nth-of-type(4)::after { animation-delay: 1.5s; }
 @keyframes ping { 0% { transform: scale(1); opacity: .55; } 80%, 100% { transform: scale(1.9); opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .hint-dot::after, a.ann-dot::after { animation: none; opacity: 0; } }
+
+/* problem and fix lists */
+.plist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+.plist li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;padding:22px 0;border-top:1px solid var(--line)}
+.pl-n{font-family:var(--mono);font-size:.85rem;padding-top:3px;color:var(--muted)}
+.plist.is-fix .pl-n{color:var(--accent)}
+.plist h3{font-family:var(--body);font-size:1.15rem;font-weight:600;line-height:1.3;margin-bottom:6px}
+.plist p{color:var(--muted);font-size:.98rem}
+@media (max-width:760px){.plist{grid-template-columns:minmax(0,1fr)}}
 </style>
 
 <div class="wrap">
   <nav class="pj-nav" aria-label="Main">
     <a class="pj-home" href="index.html" aria-label="Pooja Joshi, home"><span class="pj-mark" aria-hidden="true">PJ</span></a>
-    <a class="pj-cta" href="index.html#contact">Get in touch</a>
+    <a class="pj-cta" href="about.html#contact">Get in touch</a>
   </nav>
 
   <header class="hero" id="top">
     <a class="back-link" href="index.html#work">← All work</a>
     <img class="bs-logo" src="boostscore/logo.png" width="110" height="86" alt="Boost Score logo">
-    <h1>BoostScore</h1>
+    <span class="eyebrow">Fintech · AI assistant · Mobile app</span>
+    <h1>BoostScore: making <em>ArjunaAI</em> easier to discover</h1>
+    <p class="lead">BoostScore shows people their credit score and offers loans and cards. It also has an AI assistant, Arjuna, that most people would never find. I redesigned the Home screen and the Arjuna chat so the score explains itself, the next step is obvious, and help is one tap away.</p>
+    <dl class="facts"><div><dt>Role</dt><dd>UX/UI designer</dd></div><div><dt>Type</dt><dd>Redesign</dd></div><div><dt>Scope</dt><dd>Home + ArjunaAI chat</dd></div><div><dt>Tools</dt><dd>Figma</dd></div></dl>
   </header>
 
   <section id="problem">
-    <div class="sec-head"><h2>Problem framing</h2></div>
-    <div class="prose">
-      <p>I focused on improving the existing Home screen hierarchy rather than redesigning the product from scratch. The goal was to make the user's financial position easier to understand, make key actions more visible, and make ArjunaAI easier to discover.</p>
-    </div>
+    <div class="sec-head"><span class="eyebrow">01</span><h2>What wasn't working</h2><p class="muted prose">I went through the live app screen by screen and noted where it got in the way. Six things stood out.</p></div>
+    <ol class="plist is-problem"><li><span class="pl-n">01</span><div><h3>The AI assistant was easy to miss</h3><p>Arjuna sat below the score as a strip of questions cut off at the screen edge. A second, locked “Credit Advisor Arjuna” card further down made it unclear which one to use.</p></div></li><li><span class="pl-n">02</span><div><h3>The score had no meaning attached</h3><p>A gauge showed 736, but nothing said whether that was good or what it meant for getting a loan.</p></div></li><li><span class="pl-n">03</span><div><h3>The main actions looked like links</h3><p>View Report and Instant Loan were small text links of equal weight, so nothing pointed to the next step.</p></div></li><li><span class="pl-n">04</span><div><h3>Unfinished features took prime space</h3><p>The “Popular” block showed House Rent, Tuition Fee and Mobile Prepaid, all marked “Soon”.</p></div></li><li><span class="pl-n">05</span><div><h3>The credit summary ran off the screen</h3><p>Payment history, credit mix and credit age sat in a row cut off at both edges.</p></div></li><li><span class="pl-n">06</span><div><h3>Arjuna only answered preset questions</h3><p>The chat asked people to pick from four questions. There was no way to type your own.</p></div></li></ol>
   </section>
 
   <section id="before">
-    <div class="sec-head"><h2>Original screens</h2></div>
+    <div class="sec-head"><span class="eyebrow">02</span><h2>Original screens</h2></div>
     <div class="gallery g3">
-      <figure class="g-item"><div class="g-bg"><img src="boostscore/before-home.webp" width="408" height="906" alt="Current BoostScore homepage" loading="lazy"></div><figcaption><b>Homepage</b></figcaption></figure>
-      <figure class="g-item"><div class="g-bg"><img src="boostscore/before-home-scroll.webp" width="408" height="906" alt="Current BoostScore homepage, scrolled" loading="lazy"></div><figcaption><b>Homepage, scrolled</b></figcaption></figure>
-      <figure class="g-item"><div class="g-bg"><img src="boostscore/before-arjuna.webp" width="408" height="906" alt="Current Arjuna chat screen" loading="lazy"></div><figcaption><b>Arjuna chat</b></figcaption></figure>
+      <figure class="g-item"><div class="g-bg"><img src="boostscore/before-home.webp" width="408" height="906" alt="Original BoostScore Home: score gauge, Arjuna suggestions cut off at the edge" loading="lazy"></div><figcaption><b>Home</b><br>Score first, Arjuna cut off below it.</figcaption></figure>
+      <figure class="g-item"><div class="g-bg"><img src="boostscore/before-home-scroll.webp" width="408" height="906" alt="Original Home scrolled: Soon features, locked Arjuna card and a sideways credit summary" loading="lazy"></div><figcaption><b>Home, scrolled</b><br>"Soon" features and a second, locked Arjuna card.</figcaption></figure>
+      <figure class="g-item"><div class="g-bg"><img src="boostscore/before-arjuna.webp" width="408" height="906" alt="Original Arjuna chat with four preset questions and no text box" loading="lazy"></div><figcaption><b>Arjuna chat</b><br>Four preset questions, no way to type.</figcaption></figure>
     </div>
+  </section>
+
+  <section id="changes">
+    <div class="sec-head"><span class="eyebrow">03</span><h2>What I changed</h2><p class="muted prose">Each fix answers the problem with the same number. The product's structure stays the same, so it fits into the existing app.</p></div>
+    <ol class="plist is-fix"><li><span class="pl-n">01</span><div><h3>One clear way into AI</h3><p>“Ask ArjunaAI” is now the first card on Home and opens a full-screen chat. One entry point instead of two.</p></div></li><li><span class="pl-n">02</span><div><h3>A score that explains itself</h3><p>The score now has a label, a colour scale and one line of feedback, so people know where they stand.</p></div></li><li><span class="pl-n">03</span><div><h3>A clear next step</h3><p>Both actions became real buttons. Instant loan is the primary one, in the blue-purple gradient that now marks AI and key actions.</p></div></li><li><span class="pl-n">04</span><div><h3>Only what works today</h3><p>The “Soon” placeholders are gone, so the score, actions and summary fit on the first screen.</p></div></li><li><span class="pl-n">05</span><div><h3>The summary in full view</h3><p>Payment history, card usage and credit age sit side by side, each with a plain-language verdict.</p></div></li><li><span class="pl-n">06</span><div><h3>Ask anything</h3><p>A text box and voice input, with suggestions based on the person’s own score. Language moved to a simple picker.</p></div></li></ol>
   </section>
 
   <section id="after">
-    <div class="sec-head"><h2>Redesigned screens</h2></div>
+    <div class="sec-head"><span class="eyebrow">04</span><h2>Redesigned screens</h2></div>
     <div class="gallery g2">
-      <figure class="g-item"><div class="g-bg"><img src="boostscore/after-home.webp" width="402" height="874" alt="Redesigned BoostScore homepage" loading="lazy"></div><figcaption><b>Homepage</b></figcaption></figure>
-      <figure class="g-item"><div class="g-bg"><img src="boostscore/after-arjuna.webp" width="402" height="874" alt="Redesigned ArjunaAI screen" loading="lazy"></div><figcaption><b>ArjunaAI</b></figcaption></figure>
-    </div>
-  </section>
-
-  <section id="decisions">
-    <div class="prose bs-points">
-      <h3>ArjunaAI</h3>
-      <p>Moved ArjunaAI higher on the Home screen and designed it to expand into a focused, full-screen chat experience. Suggested prompts help users understand what they can ask and get started quickly.</p>
-      <h3>Credit score with contextual feedback</h3>
-      <p>Keeping the score the primary information on the screen and added contextual feedback so users understand what the number means, not just see the score.</p>
-      <h3>From insight to action</h3>
-      <p>Connected the score with relevant actions, Keeping Instant Loan in focus, giving users a clear next step based on their financial position.</p>
-      <h3>Visual direction</h3>
-      <p>Used #32B5FA and #9937D8 selectively across AI elements and primary actions. Replaced the black CTA treatment with the brand gradient to create a more cohesive and AI-focused visual language.</p>
+      <figure class="g-item"><div class="g-bg"><img src="boostscore/after-home.webp" width="402" height="874" alt="Redesigned Home with Ask ArjunaAI on top, score with feedback, and clear actions" loading="lazy"></div><figcaption><b>Home</b></figcaption></figure>
+      <figure class="g-item"><div class="g-bg"><img src="boostscore/after-arjuna.webp" width="402" height="874" alt="Redesigned ArjunaAI chat with personal suggestions and a text box" loading="lazy"></div><figcaption><b>ArjunaAI</b></figcaption></figure>
     </div>
   </section>
 
   <section id="annotations">
-    <p class="ann-hint"><span class="hint-dot" aria-hidden="true"></span>Tap a number to see what changed</p>
+    <div class="sec-head"><span class="eyebrow">05</span><h2>Up close</h2></div>
+    <p class="ann-hint"><span class="hint-dot" aria-hidden="true"></span>Tap a number on the screen to jump to its note. Change 5 is shown in the animation below.</p>
     <div class="ann">
       <div class="ann-shot">
         <div class="ann-phone"><img src="boostscore/after-home.webp" width="402" height="874" alt="Redesigned homepage with numbered markers" loading="lazy"><a class="ann-dot" href="#note-1" style="left:-5%;top:18.7%" aria-label="Go to note 1">1</a><a class="ann-dot" href="#note-2" style="left:105%;top:26.7%" aria-label="Go to note 2">2</a><a class="ann-dot" href="#note-3" style="left:-5%;top:45%" aria-label="Go to note 3">3</a><a class="ann-dot" href="#note-4" style="left:105%;top:68.8%" aria-label="Go to note 4">4</a></div>
@@ -529,7 +532,10 @@ a.ann-dot:nth-of-type(2)::after { animation-delay: .5s; } a.ann-dot:nth-of-type(
   </section>
 
   <section id="closing">
-    <p class="bs-close">Overall, the redesign aims to make the experience clearer, more actionable, and more AI-native while retaining the existing product structure.</p>
+    <div class="sec-head"><span class="eyebrow">06</span><h2>What I'd test next</h2></div>
+    <div class="prose stack">
+      <p>My next step is a quick test: give five people the old and new Home and ask two things: where would you go to ask about your score, and what does your score mean for getting a loan? If people find ArjunaAI faster and can explain their score in their own words, the new hierarchy is working.</p>
+    </div>
   </section>
 
   <footer>

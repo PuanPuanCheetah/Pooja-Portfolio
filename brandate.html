@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Brandate: AI that turns one sentence into a whole brand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@400&display=swap">
+<style>
+/* Portfolio case-study shell, with Brandate's own teal, lime, pink and orange used inside the showcase */
+:root{--bg:#FFFFFF;--surface:#FFFFFF;--ink:#17123D;--muted:#5B5680;--line:#E6E3F2;--accent:#1A46C8;
+--teal:#034750;--lime:#D8FF29;--pink:#FFAEED;--orange:#FF8E3D;--bink:#1F1F1F;--paper:#F9F5EF;
+--display:"Funnel Display",system-ui,-apple-system,"Segoe UI",sans-serif;--brand:"Bricolage Grotesque",var(--display);--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;color-scheme:light;
+padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--display);font-size:1.0625rem;line-height:1.6;background-image:radial-gradient(var(--line) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit} :focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:6px}
+h1,h2,h3{margin:0;font-weight:500;text-wrap:balance;line-height:1.05}
+/* nav (same as other case studies) */
+.pj-nav{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-block:20px}
+.pj-home{text-decoration:none;display:inline-flex}
+.pj-mark{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;background:var(--ink);color:var(--bg);border:2px solid var(--ink);font-size:1rem;letter-spacing:-.03em;transition:transform .25s ease,background-color .2s ease,box-shadow .2s ease}
+.pj-home:hover .pj-mark,.pj-home:focus-visible .pj-mark{background:var(--accent);color:#fff;transform:translate(-2px,-2px) rotate(-6deg);box-shadow:3px 3px 0 var(--ink)}
+.pj-cta{display:inline-flex;align-items:center;padding:9px 18px;border-radius:999px;background:var(--ink);color:var(--bg);border:2px solid var(--ink);text-decoration:none;font-size:.98rem;transition:transform .2s ease,box-shadow .2s ease,background-color .2s ease}
+.pj-cta:hover,.pj-cta:focus-visible{background:var(--accent);color:#fff;transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.back-link{text-decoration:none;font-size:.95rem;width:fit-content} .back-link:hover{color:var(--accent)}
+/* hero */
+.hero{padding-block:32px 40px;display:grid;gap:22px}
+.hero h1{font-size:clamp(2.6rem,7vw,5.2rem);letter-spacing:-.035em}
+.hero h1 b{font-weight:500;color:var(--teal)}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.lead{margin:0;max-width:60ch;color:var(--muted);font-size:clamp(1.05rem,1.8vw,1.25rem)}
+.meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:640px;margin:0}
+.meta dt{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)} .meta dd{margin:2px 0 0}
+.stats{display:flex;flex-wrap:wrap;gap:12px 40px;padding-block:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{display:grid} .stats strong{font-size:2rem;font-weight:500;line-height:1;color:var(--teal);font-variant-numeric:tabular-nums} .stats small{color:var(--muted);font-size:.9rem}
+.jump{display:flex;flex-wrap:wrap;gap:10px}
+.jump a{text-decoration:none;padding:8px 16px;border-radius:999px;border:1.5px solid var(--ink);background:var(--surface);font-size:.95rem;transition:transform .2s ease,box-shadow .2s ease}
+.jump a:hover,.jump a:focus-visible{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+.hero-shot{margin:0;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:var(--paper);cursor:zoom-in}
+.hero-shot img{display:block;width:100%;height:auto}
+/* sections */
+section{padding-block:56px;scroll-margin-top:16px}
+.sec-head{display:grid;gap:8px;margin-bottom:28px}
+.sec-head .num{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;color:var(--teal)}
+.sec-head h2{font-size:clamp(2rem,4.5vw,3rem);letter-spacing:-.025em}
+.sec-head p{margin:0;color:var(--muted);max-width:62ch}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{border:1px solid var(--line);border-radius:20px;background:#fff;padding:28px;display:grid;gap:12px;align-content:start;min-width:0}
+.card h3{font-size:1.35rem;letter-spacing:-.01em}
+.card p{margin:0;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:.92rem;padding:6px 12px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.step{border-top:2px solid var(--ink);padding-top:14px;display:grid;gap:6px}
+.step b{font-family:var(--brand);font-weight:800;font-size:2.4rem;line-height:1;color:var(--teal)}
+.step h3{font-size:1.2rem} .step p{margin:0;color:var(--muted);font-size:.98rem}
+/* research */
+.facts4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.fact{margin:0;border:1px solid var(--line);border-radius:20px;background:#fff;padding:24px;display:flex;flex-direction:column;gap:10px}
+.fact strong{font-family:var(--brand);font-weight:800;font-size:2.4rem;line-height:1;color:var(--teal);letter-spacing:-.02em}
+.fact figcaption{color:var(--ink);font-size:.98rem;line-height:1.5;flex:1}
+.fact a{font-family:var(--mono);font-size:.72rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.takeaways{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:t}
+.takeaways li{border-top:2px solid var(--ink);padding-top:14px;color:var(--muted);counter-increment:t}
+.takeaways li::before{content:"0" counter(t);display:block;font-family:var(--brand);font-weight:800;font-size:1.6rem;color:var(--teal);line-height:1;margin-bottom:8px}
+.takeaways b{display:block;color:var(--ink);font-weight:500;font-size:1.1rem;margin-bottom:4px}
+.qs{margin:0;padding-left:1.3em;display:grid;gap:8px;max-width:70ch}
+@media (max-width:900px){.facts4{grid-template-columns:repeat(2,minmax(0,1fr))}.takeaways{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:520px){.facts4{grid-template-columns:minmax(0,1fr)}}
+.interview{display:grid;grid-template-columns:minmax(0,240px) minmax(0,1fr);gap:24px;border:1px solid var(--line);border-radius:20px;background:#fff;padding:28px}
+.who{display:flex;flex-direction:column;gap:6px;padding-right:16px;border-right:1px solid var(--line)}
+.who b{font-weight:500;font-size:1.2rem;line-height:1.25}
+.who span:last-child{color:var(--muted);font-size:.95rem}
+.finds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.find{margin:0;display:flex;flex-direction:column;gap:8px}
+.find .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--teal)}
+.find h4{margin:0;font-size:1.08rem;font-weight:500;line-height:1.3}
+.find blockquote{margin:0;padding-left:12px;border-left:2px solid var(--lime);color:var(--muted);font-size:.98rem;line-height:1.5}
+.next-up{margin-top:16px;border-radius:20px;background:var(--teal);color:#fff;padding:24px 28px;display:grid;gap:8px}
+.next-up .eyebrow{color:var(--lime)} .next-up p{margin:0;max-width:75ch} .next-up b{font-weight:500;color:var(--lime)}
+.qs-wrap{margin-top:20px} .qs-wrap summary{cursor:pointer;font-size:.98rem;color:var(--muted);margin-bottom:10px}
+@media (max-width:900px){.interview{grid-template-columns:minmax(0,1fr)}.who{border-right:0;border-bottom:1px solid var(--line);padding:0 0 16px}.finds{grid-template-columns:minmax(0,1fr)}}
+/* brand identity */
+.logo-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.logo-tile{border-radius:20px;min-height:220px;display:grid;place-items:center;padding:32px;border:1px solid var(--line)}
+.logo-tile img{display:block;width:min(240px,70%);height:auto}
+.logo-tile.light{background:#fff} .logo-tile.dark{background:var(--teal);border-color:var(--teal)}
+.stripe{display:grid;grid-template-columns:repeat(4,1fr);height:8px;border-radius:4px;overflow:hidden;margin-top:16px}
+.pal{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.pal figure{margin:0;display:grid;gap:8px}
+.pal i{display:block;height:120px;border-radius:14px;border:1px solid rgba(0,0,0,.08)}
+.pal figcaption{font-size:.95rem;line-height:1.3} .pal code{display:block;font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+.grad{margin-top:16px;border-radius:14px;height:64px;background:linear-gradient(90deg,#f6c6ec,#f6b383,#e0f27f);display:flex;align-items:center;padding:0 20px;font-family:var(--brand);font-weight:600;color:var(--bink)}
+.type-spec{border-radius:20px;background:var(--paper);border:1px solid var(--line);padding:32px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:32px;align-items:center;font-family:var(--brand);color:var(--bink)}
+.type-spec .aa{font-size:clamp(5rem,12vw,9rem);font-weight:800;line-height:.85;letter-spacing:-.04em;color:var(--teal)}
+.type-spec .nm{font-size:1.8rem;font-weight:600;line-height:1.1}
+.type-spec .al{font-size:1.15rem;line-height:1.5;margin-top:10px;overflow-wrap:anywhere}
+.type-spec .wt{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:1.1rem}
+.mag{border-radius:20px;background:var(--paper);border:1px solid var(--line);padding:32px;font-family:var(--brand);color:var(--bink);display:grid;gap:10px}
+.mag .k{font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
+.mag .t{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:.95;letter-spacing:-.03em}
+.mag .t em{font-style:normal;background:linear-gradient(transparent 62%,var(--lime) 62%)}
+/* explorations */
+.marks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.mark{margin:0;min-width:0;border:1px solid var(--line);border-radius:20px;background:#EDEAE3;padding:24px;display:grid;gap:14px;align-content:start}
+.mark .art{height:150px;display:grid;place-items:center}
+.mark figcaption{font-size:.95rem} .mark figcaption b{display:block;font-weight:500;font-size:1.05rem}
+.mark figcaption span{color:var(--muted)}
+.wm{font-family:"Instrument Serif",serif;font-size:clamp(1.9rem,5.5vw,3.2rem);line-height:1;letter-spacing:-.035em;color:#0F0F0F}
+.wm i{color:#FF3B1F}
+/* screens */
+.phones{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.phone{margin:0;display:grid;gap:10px;min-width:0}
+.phone img{display:block;width:100%;height:auto;border-radius:22px;border:5px solid var(--bink);background:#fff;cursor:zoom-in;box-shadow:0 18px 40px -24px rgba(3,71,80,.5)}
+.phone figcaption{font-size:.95rem} .phone figcaption span{display:block;color:var(--muted);font-size:.9rem}
+.note{font-size:.9rem;color:var(--muted);margin:18px 0 0}
+/* product walkthrough video */
+.demo{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:48px;align-items:center;margin-bottom:56px;padding:40px;border-radius:24px;background:var(--paper);border:1px solid var(--line)}
+.demo-phone{margin:0}
+.demo-phone video{display:block;width:100%;height:auto;border-radius:30px;border:7px solid var(--bink);background:#fff;box-shadow:0 30px 60px -30px rgba(3,71,80,.55)}
+.demo-text{display:grid;gap:14px;align-content:center}
+.demo-text h3{font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.02em}
+.demo-steps{margin:0;padding-left:1.2em;display:grid;gap:10px;color:var(--muted)}
+.demo-steps b{color:var(--ink);font-weight:500}
+.vctrl{display:flex;align-items:center;gap:4px;margin:14px auto 0;padding:4px 12px 4px 4px;width:fit-content;min-width:70%;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.vctrl button{width:36px;height:36px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;color:var(--ink);cursor:pointer;flex:none}
+.vctrl button:hover,.vctrl button:focus-visible{background:var(--paper)}
+.vctrl .i-play{display:none} .vctrl.paused .i-play{display:block} .vctrl.paused .i-pause{display:none}
+.vbar{flex:1;height:3px;border-radius:2px;background:var(--line);overflow:hidden;margin-left:6px}
+.vbar i{display:block;height:100%;width:0;background:var(--teal)}
+@media (max-width:760px){.demo{grid-template-columns:minmax(0,1fr);padding:22px;gap:24px}.demo-phone{max-width:280px;margin:0 auto}}
+/* brand book */
+.book{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:start}
+.book figure{margin:0;display:grid;gap:6px}
+.book img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:zoom-in}
+.book figcaption{font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+.book:not(.all) .extra{display:none}
+.more{margin-top:18px;font:inherit;padding:11px 20px;border-radius:999px;border:2px solid var(--ink);background:#fff;cursor:pointer;transition:transform .2s ease,box-shadow .2s ease}
+.more:hover,.more:focus-visible{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:50;background:rgba(10,8,30,.82);display:grid;place-items:center;padding:max(20px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(20px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));cursor:zoom-out}
+.lb img{max-width:100%;max-height:88vh;border-radius:12px;background:#fff}
+.lb button{position:absolute;top:max(14px,env(safe-area-inset-top,0px));right:max(14px,env(safe-area-inset-right,0px));width:42px;height:42px;border-radius:50%;border:0;background:#fff;font-size:1.2rem;cursor:pointer}
+.links{display:flex;gap:12px;flex-wrap:wrap;padding-bottom:48px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;text-decoration:none;border:2px solid var(--ink);transition:transform .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--ink)}
+footer{padding-block:24px 48px;color:var(--muted);font-size:.9rem;border-top:1px dashed var(--line)}
+@media (max-width:900px){.phones,.book,.marks{grid-template-columns:repeat(2,minmax(0,1fr))}.pal{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.two,.logo-row,.steps{grid-template-columns:minmax(0,1fr)}.type-spec{grid-template-columns:minmax(0,1fr);gap:12px}.meta{grid-template-columns:repeat(2,minmax(0,1fr))}.pal{grid-template-columns:repeat(2,minmax(0,1fr))}.pal i{height:84px}.card,.mag,.type-spec{padding:22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body>
+<div class="wrap">
+  <nav class="pj-nav" aria-label="Main">
+    <a class="pj-home" href="index.html" aria-label="Pooja Joshi, home"><span class="pj-mark" aria-hidden="true">PJ</span></a>
+    <a class="pj-cta" href="about.html#contact">Get in touch</a>
+  </nav>
+
+  <header class="hero">
+    <a class="back-link" href="index.html#work">← All work</a>
+    <span class="eyebrow">AI product · Brand identity · Web app</span>
+    <h1>Brandate: <b>AI</b> that turns one sentence into a whole brand</h1>
+    <p class="lead">I designed and built Brandate, an AI tool that turns a one-sentence idea into a brand kit: a colour palette, a font pair, mockups, and a 13-page brand book you can download as a PDF.</p>
+    <dl class="meta"><div><dt>Role</dt><dd>Designer &amp; builder</dd></div><div><dt>Type</dt><dd>AI product</dd></div><div><dt>Tools</dt><dd>Figma, Claude</dd></div></dl>
+    <div class="stats"><div><strong>1</strong><small>Sentence to start</small></div><div><strong>4</strong><small>Steps: palette, fonts, visuals, book</small></div><div><strong>4</strong><small>Product mockups</small></div><div><strong>13</strong><small>Brand book pages</small></div></div>
+    <div class="jump"><a href="#idea">The idea</a><a href="#research">Research</a><a href="#identity">Logo, colour &amp; type</a><a href="#flow">The flow</a><a href="#book">Brand book</a></div>
+    <figure class="hero-shot"><img src="brandate/hero.webp" width="1800" height="1110" alt="Brandate home page: Build a brand people remember, with the brand kit cover" data-zoom></figure>
+  </header>
+
+  <section id="idea">
+    <div class="sec-head"><span class="num">01</span><h2>The idea</h2><p>A brand usually takes a designer, a lot of back and forth, and a guidelines document at the end. Brandate gets someone to a first, usable version in minutes, so they can start with something real and refine it.</p></div>
+    <div class="two">
+      <div class="card">
+        <h3>Who it's for</h3>
+        <p>Anyone starting something who needs a brand before they have a designer. The start screen suggests a few ideas to begin from:</p>
+        <div class="chips"><span class="chip">Meditation app</span><span class="chip">Streetwear label</span><span class="chip">Neighborhood bakery</span><span class="chip">AI tool for small business</span></div>
+      </div>
+      <div class="card">
+        <h3>What you get</h3>
+        <p>Colours with names, roles and contrast checks. A heading font and a body font that belong together. Your brand on products like cups, bags and boxes. A 13-page brand book as a PDF or an image.</p>
+      </div>
+    </div>
+    <div class="steps" style="margin-top:28px">
+      <div class="step"><b>01</b><h3>Describe</h3><p>Tell Brandate about your brand in one sentence.</p></div>
+      <div class="step"><b>02</b><h3>Refine</h3><p>Edit the colours, check contrast, and pick fonts.</p></div>
+      <div class="step"><b>03</b><h3>Download</h3><p>Get a full brand book as a PDF or an image.</p></div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="sec-head"><span class="num">02</span><h2>Research</h2><p>I started with public data on how small businesses get their first brand, then talked to owners. Four numbers and one interview shaped the product.</p></div>
+    <div class="facts4">
+      <figure class="fact"><strong>7.3 crore+</strong><figcaption>businesses registered on India's Udyam portal since 2020. Each one needs a name, colours and a logo.</figcaption><a href="https://www.thestatesman.com/business/msme-sector-achieves-key-milestones-in-2025-udyam-registrations-cross-7-3-crore-msme-ministry-1503532923.html" target="_blank" rel="noopener">MSME Ministry, Year-End Review 2025</a></figure>
+      <figure class="fact"><strong>78.6%</strong><figcaption>of small businesses create their logo before they launch, before there's any revenue to spend on design.</figcaption><a href="https://www.prweb.com/releases/how_small_businesses_create_a_logo_a_logaster_study/prweb17906489.htm" target="_blank" rel="noopener">Logaster small business study, 2021</a></figure>
+      <figure class="fact"><strong>74%</strong><figcaption>of small businesses would spend $100 or less on a logo. One in five want it free.</figcaption><a href="https://www.prweb.com/releases/how_small_businesses_create_a_logo_a_logaster_study/prweb17906489.htm" target="_blank" rel="noopener">Logaster small business study, 2021</a></figure>
+      <figure class="fact"><strong>81%</strong><figcaption>of organisations still deal with off-brand content, even though consistent branding is linked to up to 33% more revenue.</figcaption><a href="https://prnewswire.com/news-releases/study-finds-companies-with-consistent-branding-can-see-up-to-33-increase-in-revenue-300967219.html" target="_blank" rel="noopener">Lucidpress, State of Brand Consistency, 2019</a></figure>
+    </div>
+    <h3 style="font-size:1.5rem;margin:48px 0 16px">What that meant for Brandate</h3>
+    <ol class="takeaways">
+      <li><b>It has to work before launch.</b> People need a brand at the very start, so Brandate begins with one sentence about an idea, not an existing logo or website.</li>
+      <li><b>It has to cost little and take minutes.</b> Most owners won't pay a designer, so Brandate builds the whole kit from one sentence, with no design skills needed.</li>
+      <li><b>A logo isn't enough.</b> Brands drift when there are no rules, so every kit ends with a brand book that says how to use the colours, type and logo.</li>
+    </ol>
+    <h3 style="font-size:1.5rem;margin:48px 0 8px">Talking to owners</h3>
+    <p class="note" style="margin:0 0 20px">The data told me what was common. I wanted to hear what it actually feels like, so I started interviewing small business owners and asked them to try Brandate.</p>
+    <div class="interview">
+      <div class="who"><span class="eyebrow">Interview 01</span><b>Café owner, South Goa</b><span>Branded the café with a freelancer, then tried Brandate</span></div>
+      <div class="finds">
+        <figure class="find"><span class="k">Finding</span><h4>Hiring a designer is a gamble</h4><blockquote>“Finding the right freelancer” was the hardest part, “because you never know if the freelancer will deliver what you want.”</blockquote></figure>
+        <figure class="find"><span class="k">Finding</span><h4>Good work costs a lot</h4><blockquote>“It went well, but good designers are expensive.”</blockquote></figure>
+        <figure class="find"><span class="k">Finding</span><h4>Easy to use, but the logo is the gap</h4><blockquote>“It was very easy to use, apart from the logo.” What would make it perfect? “A logo generation tool.”</blockquote></figure>
+      </div>
+    </div>
+    <div class="next-up"><span class="eyebrow">What I'm taking forward</span><p>The first interview backs up the data: owners want a brand without the cost and risk of hiring someone. It also shows where Brandate falls short. Today it suggests a simple mark and lets you upload your own logo, but this owner expected it to design the logo too. <b>Logo generation is the next feature I'm exploring.</b></p></div>
+    <details class="qs-wrap"><summary>Questions I asked</summary>
+    <ol class="qs">
+      <li>Tell me about the last time you needed a logo or a look for your business. What did you do?</li>
+      <li>What was the hardest part?</li>
+      <li>Did you pay anyone or use a tool? How did it go?</li>
+      <li>Describe your business in one sentence and try Brandate. What do you notice?</li>
+      <li>What would you do with this brand book next? What's missing?</li>
+    </ol></details>
+  </section>
+
+  <section id="identity">
+    <div class="sec-head"><span class="num">03</span><h2>Logo, colour &amp; type</h2><p>A tool that makes brands needs a confident one of its own. Brandate's identity is built like a magazine: a cover story, an issue, bold type and four bright colours that show up across the whole product.</p></div>
+
+    <div class="logo-row">
+      <div class="logo-tile light"><img src="brandate/logo-teal.png" width="439" height="84" alt="Brandate wordmark in teal"></div>
+      <div class="logo-tile dark"><img src="brandate/logo-lime.png" width="439" height="84" alt="Brandate wordmark in lime on teal"></div>
+    </div>
+    <p class="note">A lowercase wordmark: teal on light pages, lime on dark ones, where teal is too dim. Under the app bar, a four-colour stripe carries the palette on every screen.</p>
+    <div class="stripe" aria-hidden="true"><i style="background:#034750"></i><i style="background:#D8FF29"></i><i style="background:#FFAEED"></i><i style="background:#FF8E3D"></i></div>
+
+    <h3 style="font-size:1.5rem;margin:48px 0 16px">Colour</h3>
+    <div class="pal">
+      <figure><i style="background:#034750"></i><figcaption>Teal<code>#034750</code></figcaption></figure>
+      <figure><i style="background:#D8FF29"></i><figcaption>Lime<code>#D8FF29</code></figcaption></figure>
+      <figure><i style="background:#FFAEED"></i><figcaption>Pink<code>#FFAEED</code></figcaption></figure>
+      <figure><i style="background:#FF8E3D"></i><figcaption>Orange<code>#FF8E3D</code></figcaption></figure>
+      <figure><i style="background:#1F1F1F"></i><figcaption>Ink<code>#1F1F1F</code></figcaption></figure>
+    </div>
+    <div class="grad">The AI gradient · used only on AI actions, like Generate</div>
+
+    <h3 style="font-size:1.5rem;margin:48px 0 16px">Type</h3>
+    <div class="type-spec">
+      <div class="aa" aria-hidden="true">Aa</div>
+      <div>
+        <div class="nm">Bricolage Grotesque</div>
+        <div class="al">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>abcdefghijklmnopqrstuvwxyz 0123456789</div>
+        <div class="wt"><span style="font-weight:400">Regular</span><span style="font-weight:600">Semibold</span><span style="font-weight:800">Extra bold</span></div>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.5rem;margin:48px 0 16px">Voice</h3>
+    <div class="mag">
+      <span class="k">Cover story</span>
+      <div class="t">Build a brand <em>people remember.</em></div>
+      <p style="margin:6px 0 0;font-size:1.1rem;max-width:46ch">One sentence in. A whole brand out. Three steps. No design degree.</p>
+    </div>
+  </section>
+
+  <section id="flow">
+    <div class="sec-head"><span class="num">04</span><h2>The flow</h2><p>One chat box, then four steps with a progress bar: Palette, Fonts, Visualization and Brand book. Every step can be edited, and AI actions always wear the gradient so it's clear what the AI does and what you do.</p></div>
+    <div class="demo">
+      <figure class="demo-phone"><video src="brandate/flow.mp4" poster="brandate/flow-poster.webp" width="600" height="1304" autoplay muted loop playsinline preload="metadata" aria-label="Screen recording: typing a one-sentence brief, generating a brand, then stepping through palette, fonts, visualization and the brand book"></video>
+        <div class="vctrl">
+          <button type="button" id="vplay" aria-label="Pause video"><svg class="i-pause" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1" fill="currentColor"/><rect x="14" y="5" width="4" height="14" rx="1" fill="currentColor"/></svg><svg class="i-play" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z" fill="currentColor"/></svg></button>
+          <button type="button" id="vrestart" aria-label="Restart video"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg></button>
+          <div class="vbar" aria-hidden="true"><i id="vprog"></i></div>
+        </div>
+      </figure>
+      <div class="demo-text">
+        <span class="eyebrow">Watch it work · 40 seconds</span>
+        <h3>From one sentence to a brand book</h3>
+        <ol class="demo-steps">
+          <li><b>Describe.</b> Type one sentence about the brand and press Generate.</li>
+          <li><b>Palette.</b> Five colours with roles: primary, secondary, accent, background and text.</li>
+          <li><b>Fonts.</b> A heading and body pair, shown as a real headline and paragraph.</li>
+          <li><b>Visualization.</b> The logo, product mockups, a website and an illustration in the new brand.</li>
+          <li><b>Brand book.</b> Brandate writes 13 pages you can flip through, edit and download.</li>
+        </ol>
+      </div>
+    </div>
+    <div class="phones">
+      <figure class="phone"><img src="brandate/s-describe.webp" width="804" height="1748" alt="Describe screen: What are we building? with a one-sentence brief" loading="lazy" data-zoom><figcaption>Describe<span>One sentence, or start from an idea.</span></figcaption></figure>
+      <figure class="phone"><img src="brandate/s-palette.webp" width="804" height="1748" alt="Palette step with primary, secondary, accent, background and text colours" loading="lazy" data-zoom><figcaption>1 · Palette<span>Change, lock or remove any colour, and check contrast.</span></figcaption></figure>
+      <figure class="phone"><img src="brandate/s-fonts.webp" width="804" height="1748" alt="Fonts step with a heading and body font pair" loading="lazy" data-zoom><figcaption>2 · Fonts<span>A heading and body pair, with an AI font shuffle.</span></figcaption></figure>
+      <figure class="phone"><img src="brandate/s-board.webp" width="804" height="1748" alt="Visualization step: brand board with logo, monogram and reversed version" loading="lazy" data-zoom><figcaption>3 · Brand board<span>Logo, monogram and reversed version.</span></figcaption></figure>
+      <figure class="phone"><img src="brandate/s-products.webp" width="804" height="1748" alt="Product mockups: coffee cup, shopping bag, packaging box and tote bag" loading="lazy" data-zoom><figcaption>3 · Products<span>A cup, a shopping bag, a box and a tote.</span></figcaption></figure>
+      <figure class="phone"><img src="brandate/s-website.webp" width="804" height="1748" alt="Website mockup in the brand colours and fonts" loading="lazy" data-zoom><figcaption>3 · Website<span>A landing page using the brand.</span></figcaption></figure>
+      <figure class="phone"><img src="brandate/s-illustration.webp" width="804" height="1748" alt="Brand illustration in the palette" loading="lazy" data-zoom><figcaption>3 · Illustration<span>A scene drawn in the palette.</span></figcaption></figure>
+      <figure class="phone"><img src="brandate/s-book.webp" width="804" height="1748" alt="Brand book step with the cover page preview" loading="lazy" data-zoom><figcaption>4 · Brand book<span>Flip through 13 pages, edit, download.</span></figcaption></figure>
+    </div>
+    <p class="note">The example brand, Saltbox, was generated from: “A small coffee shop with fresh cake every morning.”</p>
+  </section>
+
+  <section id="book">
+    <div class="sec-head"><span class="num">05</span><h2>The brand book</h2><p>Thirteen pages, written and laid out by Brandate: story, logo rules, colour, contrast, type, voice, imagery and the brand in use. Tap any page to see it larger.</p></div>
+    <div class="book" id="book-grid">
+      <figure><img src="brandate/book-01.webp" width="900" height="1272" alt="Brand book cover" loading="lazy" data-zoom><figcaption>01 · Cover</figcaption></figure>
+      <figure><img src="brandate/book-03.webp" width="900" height="1462" alt="Brand story page" loading="lazy" data-zoom><figcaption>03 · Brand story</figcaption></figure>
+      <figure><img src="brandate/book-06.webp" width="900" height="1272" alt="Colour page" loading="lazy" data-zoom><figcaption>06 · Colour</figcaption></figure>
+      <figure><img src="brandate/book-08.webp" width="900" height="1455" alt="Typography page" loading="lazy" data-zoom><figcaption>08 · Typography</figcaption></figure>
+      <figure class="extra"><img src="brandate/book-02.webp" width="900" height="1272" alt="Contents page" loading="lazy" data-zoom><figcaption>02 · Contents</figcaption></figure>
+      <figure class="extra"><img src="brandate/book-04.webp" width="900" height="1272" alt="Logo page" loading="lazy" data-zoom><figcaption>04 · Logo</figcaption></figure>
+      <figure class="extra"><img src="brandate/book-05.webp" width="900" height="1272" alt="Using the logo page" loading="lazy" data-zoom><figcaption>05 · Using the logo</figcaption></figure>
+      <figure class="extra"><img src="brandate/book-07.webp" width="900" height="1282" alt="Colour in use and contrast page" loading="lazy" data-zoom><figcaption>07 · Colour in use</figcaption></figure>
+      <figure class="extra"><img src="brandate/book-09.webp" width="900" height="1587" alt="Voice and tone page" loading="lazy" data-zoom><figcaption>09 · Voice and tone</figcaption></figure>
+      <figure class="extra"><img src="brandate/book-10.webp" width="900" height="1596" alt="Imagery and graphics page" loading="lazy" data-zoom><figcaption>10 · Imagery</figcaption></figure>
+      <figure class="extra"><img src="brandate/book-11.webp" width="900" height="1406" alt="In use page" loading="lazy" data-zoom><figcaption>11 · In use</figcaption></figure>
+      <figure class="extra"><img src="brandate/book-12.webp" width="900" height="1744" alt="Applications page" loading="lazy" data-zoom><figcaption>12 · Applications</figcaption></figure>
+      <figure class="extra"><img src="brandate/book-13.webp" width="900" height="1272" alt="Back cover" loading="lazy" data-zoom><figcaption>13 · Back cover</figcaption></figure>
+    </div>
+    <button class="more" id="more" type="button" aria-expanded="false" aria-controls="book-grid">Show all 13 pages</button>
+  </section>
+
+  <div class="links"><a class="btn" href="index.html#work">← Back to all work</a></div>
+  <footer>© 2026 Pooja Joshi</footer>
+</div>
+<script>
+(function(){
+  var v=document.querySelector('.demo video'),pl=document.getElementById('vplay'),rs=document.getElementById('vrestart'),pr=document.getElementById('vprog'),bar=document.querySelector('.vctrl');
+  if(v&&pl){
+    function sync(){bar.classList.toggle('paused',v.paused);pl.setAttribute('aria-label',v.paused?'Play video':'Pause video');}
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause();}
+    pl.addEventListener('click',function(){v.paused?v.play():v.pause();});
+    rs.addEventListener('click',function(){v.currentTime=0;v.play();});
+    v.addEventListener('play',sync);v.addEventListener('pause',sync);
+    v.addEventListener('timeupdate',function(){if(v.duration)pr.style.width=(v.currentTime/v.duration*100)+'%';});
+    sync();
+  }
+  var grid=document.getElementById('book-grid'),more=document.getElementById('more');
+  more.addEventListener('click',function(){var all=grid.classList.toggle('all');more.textContent=all?'Show fewer':'Show all 13 pages';more.setAttribute('aria-expanded',all?'true':'false');});
+  document.addEventListener('click',function(e){var im=e.target.closest('[data-zoom]');if(!im)return;if(im.tagName!=='IMG')im=im.querySelector('img');if(!im)return;var lb=document.createElement('div');lb.className='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-label',im.alt);
+    var big=document.createElement('img');big.src=im.src;big.alt=im.alt;var x=document.createElement('button');x.type='button';x.setAttribute('aria-label','Close');x.textContent='✕';
+    lb.appendChild(big);lb.appendChild(x);document.body.appendChild(lb);x.focus();function close(){lb.remove();document.removeEventListener('keydown',k);}function k(ev){if(ev.key==='Escape')close();}lb.addEventListener('click',close);document.addEventListener('keydown',k);});
+})();
+</script>
+</body></html>
