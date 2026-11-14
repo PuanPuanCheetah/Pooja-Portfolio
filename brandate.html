@@ -147,6 +147,41 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:.9rem;border-top:1px
 @media (max-width:900px){.phones,.book,.marks{grid-template-columns:repeat(2,minmax(0,1fr))}.pal{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:640px){.two,.logo-row,.steps{grid-template-columns:minmax(0,1fr)}.type-spec{grid-template-columns:minmax(0,1fr);gap:12px}.meta{grid-template-columns:repeat(2,minmax(0,1fr))}.pal{grid-template-columns:repeat(2,minmax(0,1fr))}.pal i{height:84px}.card,.mag,.type-spec{padding:22px}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.qg{margin-top:36px}
+.qg-title{margin:0 0 22px;font-size:1.35rem;font-weight:400;color:var(--ink)}
+.qc-list{list-style:none;margin:0;padding:6px 0 10px;display:grid;grid-template-columns:repeat(6,1fr);gap:22px}
+.qc{grid-column:span 2;border-radius:20px;padding:22px 22px 26px;display:flex;flex-direction:column;gap:14px;min-height:170px;box-shadow:0 18px 34px -16px rgba(23,18,61,.35);animation:qfloat 6s ease-in-out infinite;transition:transform .3s ease,box-shadow .3s ease}
+.qc:nth-child(4){grid-column:2 / span 2}
+.qc:hover{animation-play-state:paused;transform:translateY(-8px) rotate(0deg) !important;box-shadow:0 26px 40px -16px rgba(23,18,61,.4)}
+.qc-n{font-family:var(--mono,ui-monospace,monospace);font-size:.8rem;letter-spacing:.08em;opacity:.75}
+.qc p{margin:0;font-size:1.08rem;line-height:1.4}
+.qc1{background:var(--teal);color:#fff;--r:-1.5deg}
+.qc2{background:var(--lime);color:var(--teal);--r:1.2deg;animation-delay:-1.2s}
+.qc3{background:var(--pink);color:#3A1035;--r:-1deg;animation-delay:-2.4s}
+.qc4{background:var(--orange);color:#3A1A00;--r:1.4deg;animation-delay:-3.6s}
+.qc5{background:var(--teal);color:var(--lime);--r:-1.2deg;animation-delay:-4.8s}
+.qc{transform:rotate(var(--r))}
+@keyframes qfloat{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-8px) rotate(var(--r))}}
+@media (prefers-reduced-motion:reduce){.qc{animation:none}}
+@media (max-width:900px){.qc-list{grid-template-columns:1fr 1fr}.qc,.qc:nth-child(4){grid-column:auto}.qc:last-child{grid-column:1/-1}}
+@media (max-width:560px){.qc-list{grid-template-columns:1fr;gap:22px}.qc{min-height:0}.qc1,.qc3,.qc5{--r:-.6deg}.qc2,.qc4{--r:.6deg}}
+.facts4 .fact{border:0 !important;border-radius:20px;box-shadow:0 18px 34px -16px rgba(23,18,61,.35);animation:qfloat 6s ease-in-out infinite;transform:rotate(var(--r));transition:transform .3s ease,box-shadow .3s ease}
+.facts4 .fact:hover{animation-play-state:paused;transform:translateY(-8px) !important;box-shadow:0 26px 40px -16px rgba(23,18,61,.4)}
+.facts4{gap:26px !important;padding:6px 0 10px}
+.facts4 .fact:nth-child(1){background:var(--teal);--r:-1.2deg}
+.facts4 .fact:nth-child(1),.facts4 .fact:nth-child(1) figcaption,.facts4 .fact:nth-child(1) a{color:#fff}
+.facts4 .fact:nth-child(1) strong{color:var(--lime)}
+.facts4 .fact:nth-child(2){background:var(--lime);--r:1deg;animation-delay:-1.5s}
+.facts4 .fact:nth-child(3){background:var(--pink);--r:1.2deg;animation-delay:-3s}
+.facts4 .fact:nth-child(4){background:var(--orange);--r:-1deg;animation-delay:-4.5s}
+.facts4 .fact:nth-child(n+2) strong{color:var(--teal)}
+.facts4 .fact:nth-child(n+2) figcaption{color:var(--teal)}
+.facts4 .fact:nth-child(3) strong,.facts4 .fact:nth-child(3) figcaption{color:#3A1035}
+.facts4 .fact:nth-child(4) strong,.facts4 .fact:nth-child(4) figcaption{color:#3A1A00}
+.facts4 .fact:nth-child(n+2) a{color:inherit;opacity:.8}
+.facts4 .fact:nth-child(2) a{color:var(--teal)}.facts4 .fact:nth-child(3) a{color:#3A1035}.facts4 .fact:nth-child(4) a{color:#3A1A00}
+@media (prefers-reduced-motion:reduce){.facts4 .fact{animation:none}}
+@media (max-width:560px){.facts4 .fact:nth-child(odd){--r:-.6deg}.facts4 .fact:nth-child(even){--r:.6deg}}
 </style></head><body>
 <div class="wrap">
   <nav class="pj-nav" aria-label="Main">
@@ -210,14 +245,16 @@ footer{padding-block:24px 48px;color:var(--muted);font-size:.9rem;border-top:1px
       </div>
     </div>
     <div class="next-up"><span class="eyebrow">What I'm taking forward</span><p>The first interview backs up the data: owners want a brand without the cost and risk of hiring someone. It also shows where Brandate falls short. Today it suggests a simple mark and lets you upload your own logo, but this owner expected it to design the logo too. <b>Logo generation is the next feature I'm exploring.</b></p></div>
-    <details class="qs-wrap"><summary>Questions I asked</summary>
-    <ol class="qs">
-      <li>Tell me about the last time you needed a logo or a look for your business. What did you do?</li>
-      <li>What was the hardest part?</li>
-      <li>Did you pay anyone or use a tool? How did it go?</li>
-      <li>Describe your business in one sentence and try Brandate. What do you notice?</li>
-      <li>What would you do with this brand book next? What's missing?</li>
-    </ol></details>
+    <div class="qg">
+      <h3 class="qg-title">Questions I asked</h3>
+      <ol class="qc-list">
+        <li class="qc qc1"><span class="qc-n">Q1</span><p>Tell me about the last time you needed a logo or a look for your business. What did you do?</p></li>
+        <li class="qc qc2"><span class="qc-n">Q2</span><p>What was the hardest part?</p></li>
+        <li class="qc qc3"><span class="qc-n">Q3</span><p>Did you pay anyone or use a tool? How did it go?</p></li>
+        <li class="qc qc4"><span class="qc-n">Q4</span><p>Describe your business in one sentence and try Brandate. What do you notice?</p></li>
+        <li class="qc qc5"><span class="qc-n">Q5</span><p>What would you do with this brand book next? What's missing?</p></li>
+      </ol>
+    </div>
   </section>
 
   <section id="identity">
