@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>About & contact · Pooja Joshi</title>
+<title>About · Pooja Joshi</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -577,12 +577,12 @@ a.ct-row:hover, a.ct-row:focus-visible { transform: translate(-3px, -3px); box-s
       <a href="index.html#work">Work</a><a href="index.html#branding">Branding</a><a href="index.html#process">Process</a><a href="about.html">About</a>
     </nav>
     <div class="lp-right">
-      <a class="lp-btn sm white" href="about.html#contact">Get in touch</a>
+      <a class="lp-btn sm white" href="contact.html">Get in touch</a>
       <button class="nav-menu-btn" id="nav-menu-btn" type="button" aria-expanded="false" aria-controls="nav-drawer"><span class="nm-lines" aria-hidden="true"><i></i><i></i></span>Menu</button>
     </div>
   </div>
   <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile" hidden>
-    <a href="index.html#work">Work</a><a href="index.html#branding">Branding</a><a href="index.html#process">Process</a><a href="about.html">About</a><a href="about.html#contact">Contact</a>
+    <a href="index.html#work">Work</a><a href="index.html#branding">Branding</a><a href="index.html#process">Process</a><a href="about.html">About</a><a href="contact.html">Contact</a>
   </nav>
 </header>
 <div class="wrap" style="padding-top:110px">
@@ -610,38 +610,12 @@ a.ct-row:hover, a.ct-row:focus-visible { transform: translate(-3px, -3px); box-s
         </div>
     </div>
   </section>
-  <section id="contact" class="ct" aria-labelledby="contact-title">
-    <div class="ct-card">
-      <div class="ct-left">
-        <span class="eyebrow">Contact</span>
-        <h2 id="contact-title">Let's make something <span class="ct-mark">simple.</span></h2>
-        <p>I'm open to product design roles on AI, SaaS and enterprise teams, and to freelance projects. Email is the quickest way to reach me.</p>
-      </div>
-      <div class="ct-links">
-        <div class="ct-row">
-          <span class="ct-ic g" aria-hidden="true">@</span>
-          <div><small>Email</small><span id="email">pooja.joshi011@gmail.com</span></div>
-          <button class="ct-copy" id="copy-btn" type="button">Copy email</button>
-        </div>
-        <a class="ct-row" href="https://www.linkedin.com/in/puanpuancheetah" target="_blank" rel="noopener">
-          <span class="ct-ic p" aria-hidden="true">in</span>
-          <div><small>LinkedIn</small><span>/in/puanpuancheetah</span></div>
-          <span class="ct-go" aria-hidden="true">↗</span>
-        </a>
-        <a class="ct-row" href="https://www.behance.net/puanpuancheetah" target="_blank" rel="noopener">
-          <span class="ct-ic y" aria-hidden="true">Bē</span>
-          <div><small>Behance</small><span>/puanpuancheetah</span></div>
-          <span class="ct-go" aria-hidden="true">↗</span>
-        </a>
-      </div>
-    </div>
-  </section>
   <footer>
     <span>© 2026 Pooja Joshi</span>
   </footer>
 </div>
 <script>
-document.getElementById('copy-btn').addEventListener('click', function () {
+var _cb=document.getElementById('copy-btn'); _cb && _cb.addEventListener('click', function () {
   var btn = this, text = document.getElementById('email').textContent;
   function done(msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); }
   function fallback() {
